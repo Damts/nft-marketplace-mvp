@@ -1,6 +1,7 @@
 import { useState, useMemo } from 'react';
 import { NFTS, COLLECTIONS, NETWORKS } from '../data/mockNfts';
 import NftCard from '../components/NftCard';
+import DualRangeSlider from '../components/DualRangeSlider';
 
 export default function Home() {
   const [query, setQuery] = useState('');
@@ -41,6 +42,10 @@ export default function Home() {
           <div className="text-xs uppercase tracking-widest text-[#B8A99A] mb-2">Bem-vindo à Kurio</div>
           <h1 className="text-5xl md:text-6xl font-bold leading-tight mb-4">SEJA DONO DO FUTURO DA ARTE DIGITAL</h1>
           <p className="text-[#B8A99A] max-w-md mb-6">Descubra NFTs selecionados de criadores emergentes e consagrados. Colecione arte digital rara, apoie artistas e tenha uma parte da cultura da internet.</p>
+          <div className="flex gap-2 mb-4 max-w-md">
+            <input value={query} onChange={(e) => { setQuery(e.target.value); setPage(1); }} placeholder="Buscar NFTs" className="flex-1" />
+            <button className="px-4 py-2 bg-[#D28A4C] rounded-lg text-[#000000] font-semibold">Buscar</button>
+          </div>
           <button className="px-6 py-2.5 bg-[#D28A4C] rounded-lg hover:bg-[#E0A060] font-semibold text-[#000000]">EXPLORAR</button>
         </div>
         <div className="relative">
@@ -79,19 +84,11 @@ export default function Home() {
             </div>
             <div>
               <h3 className="font-semibold mb-2 text-sm">Faixa de preço</h3>
-              <div className="text-xs text-[#B8A99A] mb-2">Preço: {priceMin.toFixed(2)} - {priceMax.toFixed(2)} ETH</div>
-              <div className="relative h-6 mb-2">
-                <input type="range" min="0.02" max="12.30" step="0.01" value={priceMin}
-                  onChange={(e) => setPriceMin(Math.min(parseFloat(e.target.value), priceMax - 0.01))}
-                  className="absolute w-full h-1 appearance-none bg-[#3A2A1F] rounded-lg accent-[#D28A4C]" />
-                <input type="range" min="0.02" max="12.30" step="0.01" value={priceMax}
-                  onChange={(e) => setPriceMax(Math.max(parseFloat(e.target.value), priceMin + 0.01))}
-                  className="absolute w-full h-1 appearance-none bg-transparent rounded-lg accent-[#D28A4C]" />
-              </div>
-              <div className="flex justify-between text-xs text-[#B8A99A]">
-                <span>{priceMin.toFixed(2)}</span>
-                <span>{priceMax.toFixed(2)}</span>
-              </div>
+              <div className="text-xs text-[#B8A99A] mb-3">Preço: {priceMin.toFixed(2)} - {priceMax.toFixed(2)} ETH</div>
+              <DualRangeSlider
+                min={0.02} max={12.30} step={0.01}
+                valueMin={priceMin} valueMax={priceMax}
+                onChangeMin={setPriceMin} onChangeMax={setPriceMax} />
             </div>
             <div>
               <h3 className="font-semibold mb-2 text-sm">Rede</h3>
