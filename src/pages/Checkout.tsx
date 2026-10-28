@@ -93,12 +93,12 @@ export default function Checkout() {
             <h3 className="font-semibold mb-2">Carteira e rede</h3>
             <div className="space-y-2">
               {['MetaMask', 'WalletConnect', 'Coinbase Wallet'].map((w) => (
-                <button type="button" key={w} onClick={() => setWallet(w)} className={`w-full text-left p-3 rounded-lg border ${wallet === w ? 'border-violet-500 bg-violet-600/20' : 'border-zinc-700'}`}>{w}</button>
+                <button type="button" key={w} onClick={() => setWallet(w)} className={`w-full text-left p-3 rounded-lg border ${wallet === w ? 'border-orange-500 bg-orange-500/20' : 'border-zinc-700'}`}>{w}</button>
               ))}
             </div>
           </div>
 
-          <button type="submit" className="w-full py-3 bg-violet-600 rounded-lg hover:bg-violet-500 font-semibold">Confirmar compra</button>
+          <button type="submit" className="w-full py-3 bg-orange-500 rounded-lg hover:bg-orange-400 font-semibold">Confirmar compra</button>
         </div>
       </form>
     </div>

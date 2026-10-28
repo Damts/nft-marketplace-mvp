@@ -23,7 +23,7 @@ export default function Wallets() {
         <form onSubmit={handleSave} className="p-4 rounded-xl border border-zinc-800 bg-zinc-900 space-y-3">
           <div className="flex items-center justify-between">
             <h3 className="font-semibold">Carteira principal</h3>
-            <button type="submit" className="px-4 py-1.5 bg-violet-600 rounded-lg text-sm hover:bg-violet-500">Salvar carteira</button>
+            <button type="submit" className="px-4 py-1.5 bg-orange-500 rounded-lg text-sm hover:bg-orange-400">Salvar carteira</button>
           </div>
           <p className="text-xs text-zinc-500">Estas carteiras ficam disponíveis no pagamento e para receber NFTs comprados.</p>
           <div className="grid md:grid-cols-2 gap-3">

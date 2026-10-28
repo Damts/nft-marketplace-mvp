@@ -29,11 +29,11 @@ export default function Login() {
         <input type="email" placeholder="contato@email.com" value={email} onChange={(e) => setEmail(e.target.value)} className="w-full" />
         <input type="password" placeholder="Senha" value={password} onChange={(e) => setPassword(e.target.value)} className="w-full" />
         {error && <div className="text-red-400 text-sm">{error}</div>}
-        <button type="submit" className="w-full py-2.5 bg-violet-600 rounded-lg hover:bg-violet-500 font-semibold">Entrar</button>
+        <button type="submit" className="w-full py-2.5 bg-orange-500 rounded-lg hover:bg-orange-400 font-semibold">Entrar</button>
         <div className="text-center text-sm text-zinc-500">Ou continue com</div>
         <button type="button" className="w-full py-2.5 bg-zinc-800 rounded-lg hover:bg-zinc-700">Continuar com Google</button>
         <button type="button" className="w-full py-2.5 bg-zinc-800 rounded-lg hover:bg-zinc-700">Continuar com Facebook</button>
-        <div className="text-center text-sm"><a href="/register" className="text-violet-400">Novo na Kurio? Crie uma conta</a></div>
+        <div className="text-center text-sm"><a href="/register" className="text-orange-300">Novo na Kurio? Crie uma conta</a></div>
       </form>
     </div>
   );

@@ -27,7 +27,7 @@ export default function Cart() {
       {items.length === 0 ? (
         <div className="text-center py-16 text-zinc-400">
           <p>Carrinho vazio.</p>
-          <button onClick={() => navigate('/')} className="mt-4 text-violet-400">Continuar explorando</button>
+          <button onClick={() => navigate('/')} className="mt-4 text-orange-300">Continuar explorando</button>
         </div>
       ) : (
         <div className="grid md:grid-cols-3 gap-6">
@@ -39,7 +39,7 @@ export default function Cart() {
                   <div className="font-semibold">{i.nft.name}</div>
                   <div className="text-xs text-zinc-500">ID do token: #{i.nft.id.split('_').pop()}</div>
                   <div className="text-xs text-zinc-500">Edição: {i.edition}</div>
-                  <div className="text-violet-400 text-sm mt-1">{i.nft.price} ETH</div>
+                  <div className="text-orange-300 text-sm mt-1">{i.nft.price} ETH</div>
                 </div>
                 <div className="flex flex-col items-end gap-2">
                   <div className="flex items-center gap-2">
@@ -70,7 +70,7 @@ export default function Cart() {
               <div className="flex justify-between font-bold text-lg pt-2 border-t border-zinc-800"><span>Total</span><span>{total.toFixed(3)} ETH</span></div>
             </div>
 
-            <button onClick={() => navigate('/checkout')} className="w-full py-2.5 bg-violet-600 rounded-lg hover:bg-violet-500 font-semibold">Conectar e finalizar</button>
+            <button onClick={() => navigate('/checkout')} className="w-full py-2.5 bg-orange-500 rounded-lg hover:bg-orange-400 font-semibold">Conectar e finalizar</button>
             <button onClick={() => navigate('/')} className="w-full py-2.5 bg-zinc-800 rounded-lg hover:bg-zinc-700 text-sm">Continuar explorando</button>
           </div>
         </div>

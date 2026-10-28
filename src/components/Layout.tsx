@@ -22,7 +22,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           <div className="ml-auto flex items-center gap-5">
             <Link to="/cart" className="relative text-sm flex items-center gap-1">
               <span>Carrinho</span>
-              {count > 0 && <span className="px-1.5 py-0.5 text-[10px] rounded-full bg-violet-600 font-bold">{count}</span>}
+              {count > 0 && <span className="px-1.5 py-0.5 text-[10px] rounded-full bg-orange-500 font-bold">{count}</span>}
             </Link>
             {user ? (
               <>
@@ -30,7 +30,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 <button onClick={logout} className="text-sm text-zinc-400 hover:text-white">Sair</button>
               </>
             ) : (
-              <Link to="/login" className="text-sm bg-violet-600 px-4 py-1.5 rounded-lg hover:bg-violet-500 font-medium">Entrar</Link>
+              <Link to="/login" className="text-sm bg-orange-500 px-4 py-1.5 rounded-lg hover:bg-orange-400 font-medium">Entrar</Link>
             )}
           </div>
         </div>

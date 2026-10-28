@@ -29,11 +29,11 @@ export default function Register() {
         <input type="password" placeholder="Senha" value={password} onChange={(e) => setPassword(e.target.value)} className="w-full" />
         <input type="password" placeholder="Confirmar senha" value={confirm} onChange={(e) => setConfirm(e.target.value)} className="w-full" />
         {error && <div className="text-red-400 text-sm">{error}</div>}
-        <button type="submit" className="w-full py-2.5 bg-violet-600 rounded-lg hover:bg-violet-500 font-semibold">Criar perfil</button>
+        <button type="submit" className="w-full py-2.5 bg-orange-500 rounded-lg hover:bg-orange-400 font-semibold">Criar perfil</button>
         <div className="text-center text-sm text-zinc-500">Ou continue com</div>
         <button type="button" className="w-full py-2.5 bg-zinc-800 rounded-lg hover:bg-zinc-700">Continuar com Google</button>
         <button type="button" className="w-full py-2.5 bg-zinc-800 rounded-lg hover:bg-zinc-700">Continuar com Facebook</button>
-        <div className="text-center text-sm"><a href="/login" className="text-violet-400">Já tem uma conta? Entre</a></div>
+        <div className="text-center text-sm"><a href="/login" className="text-orange-300">Já tem uma conta? Entre</a></div>
       </form>
     </div>
   );

@@ -13,7 +13,7 @@ export default function NftDetail() {
   const [fav, setFav] = useState(false);
 
   if (!nft) {
-    return <div className="max-w-7xl mx-auto px-4 py-16 text-center"><h2 className="text-2xl">NFT não encontrado</h2><button onClick={() => navigate('/')} className="mt-4 text-violet-400">Voltar</button></div>;
+    return <div className="max-w-7xl mx-auto px-4 py-16 text-center"><h2 className="text-2xl">NFT não encontrado</h2><button onClick={() => navigate('/')} className="mt-4 text-orange-300">Voltar</button></div>;
   }
 
   const handleBuy = () => {
@@ -30,7 +30,7 @@ export default function NftDetail() {
         </div>
         <div>
           <h1 className="text-3xl font-bold mb-2">{nft.name}</h1>
-          <div className="text-2xl text-violet-400 font-bold mb-2">{nft.price} ETH</div>
+          <div className="text-2xl text-orange-300 font-bold mb-2">{nft.price} ETH</div>
           <div className="text-sm text-zinc-500 mb-4">{nft.editions} avaliações de colecionadores</div>
           <p className="text-zinc-300 mb-4">{nft.description}</p>
 
@@ -38,7 +38,7 @@ export default function NftDetail() {
             <div className="text-sm font-semibold mb-2">Edição:</div>
             <div className="flex gap-2">
               {['1/1', '1/10', '1/50'].map((e) => (
-                <button key={e} onClick={() => setEdition(e)} className={`px-3 py-1.5 rounded-lg border ${edition === e ? 'border-violet-500 bg-violet-600/20' : 'border-zinc-700'}`}>{e}</button>
+                <button key={e} onClick={() => setEdition(e)} className={`px-3 py-1.5 rounded-lg border ${edition === e ? 'border-orange-500 bg-orange-500/20' : 'border-zinc-700'}`}>{e}</button>
               ))}
               <span className="px-3 py-1.5 rounded-lg bg-green-600/20 text-green-300 text-sm">ABERTA</span>
             </div>
@@ -55,7 +55,7 @@ export default function NftDetail() {
           </div>
 
           <div className="flex gap-3 mb-6">
-            <button onClick={handleBuy} className="px-6 py-2.5 bg-violet-600 rounded-lg hover:bg-violet-500 font-semibold">COMPRAR</button>
+            <button onClick={handleBuy} className="px-6 py-2.5 bg-orange-500 rounded-lg hover:bg-orange-400 font-semibold">COMPRAR</button>
             <button onClick={() => setFav(!fav)} className={`px-4 py-2.5 rounded-lg border ${fav ? 'border-pink-500 text-pink-400' : 'border-zinc-700'}`}>{fav ? '♥ Favoritado' : '♡ Favoritar'}</button>
           </div>
 
@@ -77,7 +77,7 @@ export default function NftDetail() {
               <img src={n.image} alt={n.name} className="w-full aspect-square object-cover" loading="lazy" />
               <div className="p-2 text-xs">
                 <div className="truncate">{n.name}</div>
-                <div className="text-violet-400">{n.price} ETH</div>
+                <div className="text-orange-300">{n.price} ETH</div>
               </div>
             </a>
           ))}

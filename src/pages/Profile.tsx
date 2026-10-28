@@ -44,7 +44,7 @@ export default function Profile() {
               <button type="button" className="px-3 py-1.5 bg-zinc-700 rounded-lg text-sm">Remover</button>
             </div>
           </div>
-          <button type="submit" className="px-6 py-2.5 bg-violet-600 rounded-lg hover:bg-violet-500 font-semibold">Salvar</button>
+          <button type="submit" className="px-6 py-2.5 bg-orange-500 rounded-lg hover:bg-orange-400 font-semibold">Salvar</button>
           {saved && <span className="text-green-400 text-sm ml-3">Salvo!</span>}
         </form>
 
@@ -53,7 +53,7 @@ export default function Profile() {
           <input type="password" placeholder="Senha atual" value={pwd.current} onChange={(e) => setPwd({ ...pwd, current: e.target.value })} className="w-full" />
           <input type="password" placeholder="Nova senha" value={pwd.next} onChange={(e) => setPwd({ ...pwd, next: e.target.value })} className="w-full" />
           <input type="password" placeholder="Confirmar nova senha" value={pwd.confirm} onChange={(e) => setPwd({ ...pwd, confirm: e.target.value })} className="w-full" />
-          <button type="submit" className="px-6 py-2.5 bg-violet-600 rounded-lg hover:bg-violet-500 font-semibold">Salvar</button>
+          <button type="submit" className="px-6 py-2.5 bg-orange-500 rounded-lg hover:bg-orange-400 font-semibold">Salvar</button>
         </form>
       </div>
     </div>
