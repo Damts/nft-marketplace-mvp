@@ -9,6 +9,8 @@ export default function Home() {
   const [sort, setSort] = useState('recent');
   const [page, setPage] = useState(1);
   const [tab, setTab] = useState('Todos os NFTs');
+  const [priceMin, setPriceMin] = useState(0.02);
+  const [priceMax, setPriceMax] = useState(12.30);
   const perPage = 6;
 
   const filtered = useMemo(() => {
@@ -17,10 +19,14 @@ export default function Home() {
     if (collection) list = list.filter((n) => n.collection === collection);
     if (network) list = list.filter((n) => n.network === network);
     if (tab === 'Novos lançamentos') list = list.filter((n) => n.rare);
+    list = list.filter((n) => {
+      const p = parseFloat(n.price);
+      return p >= priceMin && p <= priceMax;
+    });
     if (sort === 'price-asc') list.sort((a, b) => parseFloat(a.price) - parseFloat(b.price));
     if (sort === 'price-desc') list.sort((a, b) => parseFloat(b.price) - parseFloat(a.price));
     return list;
-  }, [query, collection, network, sort, tab]);
+  }, [query, collection, network, sort, tab, priceMin, priceMax]);
 
   const totalPages = Math.ceil(filtered.length / perPage);
   const pageItems = filtered.slice((page - 1) * perPage, page * perPage);
@@ -73,8 +79,19 @@ export default function Home() {
             </div>
             <div>
               <h3 className="font-semibold mb-2 text-sm">Faixa de preço</h3>
-              <div className="text-xs text-[#B8A99A] mb-2">Preço: 0,02 - 12,30 ETH</div>
-              <button className="w-full py-1.5 bg-[#2A1F18] rounded-lg text-xs hover:bg-[#3A2A1F]">Aplicar</button>
+              <div className="text-xs text-[#B8A99A] mb-2">Preço: {priceMin.toFixed(2)} - {priceMax.toFixed(2)} ETH</div>
+              <div className="relative h-6 mb-2">
+                <input type="range" min="0.02" max="12.30" step="0.01" value={priceMin}
+                  onChange={(e) => setPriceMin(Math.min(parseFloat(e.target.value), priceMax - 0.01))}
+                  className="absolute w-full h-1 appearance-none bg-[#3A2A1F] rounded-lg accent-[#D28A4C]" />
+                <input type="range" min="0.02" max="12.30" step="0.01" value={priceMax}
+                  onChange={(e) => setPriceMax(Math.max(parseFloat(e.target.value), priceMin + 0.01))}
+                  className="absolute w-full h-1 appearance-none bg-transparent rounded-lg accent-[#D28A4C]" />
+              </div>
+              <div className="flex justify-between text-xs text-[#B8A99A]">
+                <span>{priceMin.toFixed(2)}</span>
+                <span>{priceMax.toFixed(2)}</span>
+              </div>
             </div>
             <div>
               <h3 className="font-semibold mb-2 text-sm">Rede</h3>
@@ -93,9 +110,9 @@ export default function Home() {
 
           <section className="flex-1">
             <div className="flex items-center justify-between mb-4 flex-wrap gap-2">
-              <div className="flex gap-2 text-sm flex-wrap">
+              <div className="flex gap-6 text-sm border-b border-[#3A2A1F] mb-4">
                 {['Todos os NFTs', 'Novos lançamentos', 'Em alta'].map((t) => (
-                  <button key={t} onClick={() => { setTab(t); setPage(1); }} className={`px-3 py-1.5 rounded-lg ${tab === t ? 'bg-[#D28A4C]' : 'bg-[#2A1F18] hover:bg-[#3A2A1F]'}`}>{t}</button>
+                  <button key={t} onClick={() => { setTab(t); setPage(1); }} className={`pb-2 border-b-2 transition ${tab === t ? 'border-[#D28A4C] text-[#D28A4C]' : 'border-transparent text-[#F5EDE4] hover:text-[#D28A4C]'}`}>{t}</button>
                 ))}
               </div>
               <select value={sort} onChange={(e) => setSort(e.target.value)} className="text-sm">
