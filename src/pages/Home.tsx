@@ -4,7 +4,6 @@ import NftCard from '../components/NftCard';
 import DualRangeSlider from '../components/DualRangeSlider';
 
 export default function Home() {
-  const [query, setQuery] = useState('');
   const [collection, setCollection] = useState<string | null>(null);
   const [network, setNetwork] = useState<string | null>(null);
   const [sort, setSort] = useState('recent');
@@ -18,7 +17,6 @@ export default function Home() {
 
   const filtered = useMemo(() => {
     let list = [...NFTS];
-    if (query) list = list.filter((n) => n.name.toLowerCase().includes(query.toLowerCase()));
     if (collection) list = list.filter((n) => n.collection === collection);
     if (network) list = list.filter((n) => n.network === network);
     if (tab === 'Novos lançamentos') list = list.filter((n) => n.rare);
@@ -29,7 +27,7 @@ export default function Home() {
     if (sort === 'price-asc') list.sort((a, b) => parseFloat(a.price) - parseFloat(b.price));
     if (sort === 'price-desc') list.sort((a, b) => parseFloat(b.price) - parseFloat(a.price));
     return list;
-  }, [query, collection, network, sort, tab, appliedMin, appliedMax]);
+  }, [collection, network, sort, tab, appliedMin, appliedMax]);
 
   const totalPages = Math.ceil(filtered.length / perPage);
   const pageItems = filtered.slice((page - 1) * perPage, page * perPage);
@@ -63,10 +61,6 @@ export default function Home() {
       <section id="catalog" className="max-w-7xl mx-auto px-4 py-8">
         <div className="flex flex-col md:flex-row gap-6">
           <aside className="md:w-64 shrink-0 space-y-6">
-            <div>
-              <h3 className="font-semibold mb-2 text-sm">Buscar</h3>
-              <input value={query} onChange={(e) => { setQuery(e.target.value); setPage(1); }} placeholder="Buscar NFTs" className="w-full text-sm" />
-            </div>
             <div>
               <h3 className="font-semibold mb-2 text-sm">Coleções</h3>
               <ul className="space-y-1 text-sm">
