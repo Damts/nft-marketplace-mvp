@@ -12,6 +12,8 @@ export default function Home() {
   const [tab, setTab] = useState('Todos os NFTs');
   const [priceMin, setPriceMin] = useState(0.02);
   const [priceMax, setPriceMax] = useState(12.30);
+  const [appliedMin, setAppliedMin] = useState(0.02);
+  const [appliedMax, setAppliedMax] = useState(12.30);
   const perPage = 6;
 
   const filtered = useMemo(() => {
@@ -22,12 +24,12 @@ export default function Home() {
     if (tab === 'Novos lançamentos') list = list.filter((n) => n.rare);
     list = list.filter((n) => {
       const p = parseFloat(n.price);
-      return p >= priceMin && p <= priceMax;
+      return p >= appliedMin && p <= appliedMax;
     });
     if (sort === 'price-asc') list.sort((a, b) => parseFloat(a.price) - parseFloat(b.price));
     if (sort === 'price-desc') list.sort((a, b) => parseFloat(b.price) - parseFloat(a.price));
     return list;
-  }, [query, collection, network, sort, tab, priceMin, priceMax]);
+  }, [query, collection, network, sort, tab, appliedMin, appliedMax]);
 
   const totalPages = Math.ceil(filtered.length / perPage);
   const pageItems = filtered.slice((page - 1) * perPage, page * perPage);
@@ -42,10 +44,6 @@ export default function Home() {
           <div className="text-xs uppercase tracking-widest text-[#B8A99A] mb-2">Bem-vindo à Kurio</div>
           <h1 className="text-5xl md:text-6xl font-bold leading-tight mb-4">SEJA DONO DO FUTURO DA ARTE DIGITAL</h1>
           <p className="text-[#B8A99A] max-w-md mb-6">Descubra NFTs selecionados de criadores emergentes e consagrados. Colecione arte digital rara, apoie artistas e tenha uma parte da cultura da internet.</p>
-          <div className="flex gap-2 mb-4 max-w-md">
-            <input value={query} onChange={(e) => { setQuery(e.target.value); setPage(1); }} placeholder="Buscar NFTs" className="flex-1" />
-            <button className="px-4 py-2 bg-[#D28A4C] rounded-lg text-[#000000] font-semibold">Buscar</button>
-          </div>
           <button className="px-6 py-2.5 bg-[#D28A4C] rounded-lg hover:bg-[#E0A060] font-semibold text-[#000000]">EXPLORAR</button>
         </div>
         <div className="relative">
@@ -89,6 +87,8 @@ export default function Home() {
                 min={0.02} max={12.30} step={0.01}
                 valueMin={priceMin} valueMax={priceMax}
                 onChangeMin={setPriceMin} onChangeMax={setPriceMax} />
+              <button onClick={() => { setAppliedMin(priceMin); setAppliedMax(priceMax); setPage(1); }}
+                className="w-full mt-3 py-1.5 bg-[#2A1F18] rounded-lg text-xs hover:bg-[#3A2A1F] text-[#F5EDE4]">Aplicar</button>
             </div>
             <div>
               <h3 className="font-semibold mb-2 text-sm">Rede</h3>
