@@ -76,13 +76,13 @@ export default function Home() {
             </div>
             <div>
               <h3 className="font-semibold mb-2 text-sm">Faixa de preço</h3>
-              <div className="text-xs text-[#B8A99A] mb-3">Preço: {priceMin.toFixed(2)} - {priceMax.toFixed(2)} ETH</div>
               <DualRangeSlider
                 min={0.02} max={12.30} step={0.01}
                 valueMin={priceMin} valueMax={priceMax}
                 onChangeMin={setPriceMin} onChangeMax={setPriceMax} />
+              <div className="text-xs text-[#B8A99A] mt-3 mb-3">Preço: {priceMin.toFixed(2)} - {priceMax.toFixed(2)} ETH</div>
               <button onClick={() => { setAppliedMin(priceMin); setAppliedMax(priceMax); setPage(1); }}
-                className="w-full mt-3 py-1.5 bg-[#2A1F18] rounded-lg text-xs hover:bg-[#3A2A1F] text-[#F5EDE4]">Aplicar</button>
+                className="w-full py-1.5 bg-[#D28A4C] rounded-lg text-xs hover:bg-[#E0A060] text-[#000000] font-semibold">Aplicar</button>
             </div>
             <div>
               <h3 className="font-semibold mb-2 text-sm">Rede</h3>
