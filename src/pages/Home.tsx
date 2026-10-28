@@ -32,10 +32,10 @@ export default function Home() {
       {/* Hero */}
       <section className="max-w-7xl mx-auto px-4 py-12 md:py-16 grid md:grid-cols-2 gap-8 items-center">
         <div>
-          <div className="text-xs uppercase tracking-widest text-zinc-500 mb-2">Bem-vindo à Kurio</div>
+          <div className="text-xs uppercase tracking-widest text-[#B8A99A] mb-2">Bem-vindo à Kurio</div>
           <h1 className="text-5xl md:text-6xl font-bold leading-tight mb-4">SEJA DONO DO FUTURO DA ARTE DIGITAL</h1>
-          <p className="text-zinc-400 max-w-md mb-6">Descubra NFTs selecionados de criadores emergentes e consagrados. Colecione arte digital rara, apoie artistas e tenha uma parte da cultura da internet.</p>
-          <button className="px-6 py-2.5 bg-orange-500 rounded-lg hover:bg-orange-400 font-semibold">EXPLORAR</button>
+          <p className="text-[#B8A99A] max-w-md mb-6">Descubra NFTs selecionados de criadores emergentes e consagrados. Colecione arte digital rara, apoie artistas e tenha uma parte da cultura da internet.</p>
+          <button className="px-6 py-2.5 bg-[#D28A4C] rounded-lg hover:bg-[#E0A060] font-semibold text-[#000000]">EXPLORAR</button>
         </div>
         <div className="relative">
           <img src={featured.image} alt={featured.name} className="w-full max-w-md mx-auto rounded-2xl shadow-2xl" />
@@ -44,10 +44,10 @@ export default function Home() {
 
       {/* Mobile hero alt */}
       <section className="md:hidden max-w-7xl mx-auto px-4 pb-8 text-center">
-        <div className="text-xs uppercase tracking-widest text-zinc-500 mb-1">Bem-vindo à Kurio</div>
+        <div className="text-xs uppercase tracking-widest text-[#B8A99A] mb-1">Bem-vindo à Kurio</div>
         <h2 className="text-2xl font-bold mb-2">SEJA DONO DA CULTURA DIGITAL</h2>
-        <p className="text-zinc-400 text-sm mb-4">Descubra NFTs selecionados de criadores do mundo todo.</p>
-        <button className="px-5 py-2 bg-orange-500 rounded-lg text-sm">EXPLORAR</button>
+        <p className="text-[#B8A99A] text-sm mb-4">Descubra NFTs selecionados de criadores do mundo todo.</p>
+        <button className="px-5 py-2 bg-[#D28A4C] rounded-lg text-sm text-[#000000]">EXPLORAR</button>
       </section>
 
       {/* Catalog */}
@@ -63,28 +63,28 @@ export default function Home() {
               <ul className="space-y-1 text-sm">
                 {COLLECTIONS.slice(0, 6).map((c) => (
                   <li key={c} className="flex items-center justify-between">
-                    <button onClick={() => { setCollection(collection === c ? null : c); setPage(1); }} className={`text-left ${collection === c ? 'text-white font-medium' : 'text-zinc-400 hover:text-white'}`}>
+                    <button onClick={() => { setCollection(collection === c ? null : c); setPage(1); }} className={`text-left ${collection === c ? 'text-[#F5EDE4] font-medium' : 'text-[#B8A99A] hover:text-[#F5EDE4]'}`}>
                       {c}
                     </button>
-                    <span className="text-xs text-zinc-600">({Math.floor(Math.random() * 40 + 3)})</span>
+                    <span className="text-xs text-[#B8A99A]">({Math.floor(Math.random() * 40 + 3)})</span>
                   </li>
                 ))}
               </ul>
             </div>
             <div>
               <h3 className="font-semibold mb-2 text-sm">Faixa de preço</h3>
-              <div className="text-xs text-zinc-400 mb-2">Preço: 0,02 - 12,30 ETH</div>
-              <button className="w-full py-1.5 bg-zinc-800 rounded-lg text-xs hover:bg-zinc-700">Aplicar</button>
+              <div className="text-xs text-[#B8A99A] mb-2">Preço: 0,02 - 12,30 ETH</div>
+              <button className="w-full py-1.5 bg-[#2A1F18] rounded-lg text-xs hover:bg-[#3A2A1F]">Aplicar</button>
             </div>
             <div>
               <h3 className="font-semibold mb-2 text-sm">Rede</h3>
               <ul className="space-y-1 text-sm">
                 {NETWORKS.map((n) => (
                   <li key={n} className="flex items-center justify-between">
-                    <button onClick={() => { setNetwork(network === n ? null : n); setPage(1); }} className={`text-left ${network === n ? 'text-white font-medium' : 'text-zinc-400 hover:text-white'}`}>
+                    <button onClick={() => { setNetwork(network === n ? null : n); setPage(1); }} className={`text-left ${network === n ? 'text-[#F5EDE4] font-medium' : 'text-[#B8A99A] hover:text-[#F5EDE4]'}`}>
                       {n}
                     </button>
-                    <span className="text-xs text-zinc-600">({Math.floor(Math.random() * 100 + 70)})</span>
+                    <span className="text-xs text-[#B8A99A]">({Math.floor(Math.random() * 100 + 70)})</span>
                   </li>
                 ))}
               </ul>
@@ -95,7 +95,7 @@ export default function Home() {
             <div className="flex items-center justify-between mb-4 flex-wrap gap-2">
               <div className="flex gap-2 text-sm flex-wrap">
                 {['Todos os NFTs', 'Novos lançamentos', 'Em alta'].map((t) => (
-                  <button key={t} onClick={() => { setTab(t); setPage(1); }} className={`px-3 py-1.5 rounded-lg ${tab === t ? 'bg-orange-500' : 'bg-zinc-800 hover:bg-zinc-700'}`}>{t}</button>
+                  <button key={t} onClick={() => { setTab(t); setPage(1); }} className={`px-3 py-1.5 rounded-lg ${tab === t ? 'bg-[#D28A4C]' : 'bg-[#2A1F18] hover:bg-[#3A2A1F]'}`}>{t}</button>
                 ))}
               </div>
               <select value={sort} onChange={(e) => setSort(e.target.value)} className="text-sm">
@@ -105,15 +105,15 @@ export default function Home() {
               </select>
             </div>
 
-            <p className="text-sm text-zinc-500 mb-3">{filtered.length} NFTs encontrados</p>
+            <p className="text-sm text-[#B8A99A] mb-3">{filtered.length} NFTs encontrados</p>
 
             {/* Featured NFT highlight */}
-            <div className="mb-6 p-4 rounded-xl border border-zinc-800 bg-zinc-900 flex items-center gap-4">
-              <div className="text-xs uppercase text-amber-400 font-bold">NFT EM DESTAQUE<br/>OFERTA LIMITADA</div>
+            <div className="mb-6 p-4 rounded-xl border border-[#3A2A1F] bg-[#1E1510] flex items-center gap-4">
+              <div className="text-xs uppercase text-[#D28A4C] font-bold">NFT EM DESTAQUE<br/>OFERTA LIMITADA</div>
               <img src={featured.image} alt={featured.name} className="w-16 h-16 rounded-lg object-cover" />
               <div className="flex-1">
                 <div className="font-semibold">{featured.name}</div>
-                <div className="text-orange-300 text-sm">{featured.price} ETH</div>
+                <div className="text-[#D28A4C] text-sm">{featured.price} ETH</div>
               </div>
             </div>
 
@@ -124,7 +124,7 @@ export default function Home() {
             {totalPages > 1 && (
               <div className="flex gap-2 mt-6 justify-center">
                 {Array.from({ length: totalPages }, (_, i) => i + 1).map((p) => (
-                  <button key={p} onClick={() => setPage(p)} className={`px-3 py-1.5 rounded ${p === page ? 'bg-orange-500' : 'bg-zinc-800 hover:bg-zinc-700'}`}>{p}</button>
+                  <button key={p} onClick={() => setPage(p)} className={`px-3 py-1.5 rounded ${p === page ? 'bg-[#D28A4C]' : 'bg-[#2A1F18] hover:bg-[#3A2A1F]'}`}>{p}</button>
                 ))}
               </div>
             )}
@@ -134,22 +134,22 @@ export default function Home() {
 
       {/* Promo cards */}
       <section className="max-w-7xl mx-auto px-4 py-8 grid md:grid-cols-2 gap-6">
-        <div className="p-6 rounded-2xl bg-gradient-to-br from-orange-900/40 to-zinc-900 border border-zinc-800">
+        <div className="p-6 rounded-2xl bg-gradient-to-br from-[#D28A4C]/30 to-[#1E1510] border border-[#3A2A1F]">
           <h3 className="text-xl font-bold mb-2">Lançamentos gênesis<br/>de edição limitada</h3>
-          <p className="text-zinc-400 text-sm mb-4">Colecione edições escassas diretamente dos criadores antes da revelação pública.</p>
-          <button className="px-4 py-2 bg-orange-500 rounded-lg text-sm hover:bg-orange-400">Explorar</button>
+          <p className="text-[#B8A99A] text-sm mb-4">Colecione edições escassas diretamente dos criadores antes da revelação pública.</p>
+          <button className="px-4 py-2 bg-[#D28A4C] rounded-lg text-sm hover:bg-[#E0A060] text-[#000000]">Explorar</button>
         </div>
-        <div className="p-6 rounded-2xl bg-gradient-to-br from-amber-900/30 to-zinc-900 border border-zinc-800">
+        <div className="p-6 rounded-2xl bg-gradient-to-br from-[#D28A4C]/20 to-[#1E1510] border border-[#3A2A1F]">
           <h3 className="text-xl font-bold mb-2">Arte digital selecionada<br/>e muito mais</h3>
-          <p className="text-zinc-400 text-sm mb-4">Explore novos artistas, coleções verificadas e obras digitais que definem a cultura.</p>
-          <button className="px-4 py-2 bg-zinc-700 rounded-lg text-sm hover:bg-zinc-600">Explorar</button>
+          <p className="text-[#B8A99A] text-sm mb-4">Explore novos artistas, coleções verificadas e obras digitais que definem a cultura.</p>
+          <button className="px-4 py-2 bg-[#3A2A1F] rounded-lg text-sm hover:bg-[#3A2A1F]">Explorar</button>
         </div>
       </section>
 
       {/* Editorial */}
       <section className="max-w-7xl mx-auto px-4 py-8">
         <h2 className="text-2xl font-bold mb-2">Diário da Cunhagem</h2>
-        <p className="text-zinc-400 text-sm mb-6">Histórias, guias e insights para colecionadores sobre o universo da propriedade digital.</p>
+        <p className="text-[#B8A99A] text-sm mb-6">Histórias, guias e insights para colecionadores sobre o universo da propriedade digital.</p>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
           {[
             { title: 'Como funciona a propriedade de NFTs', date: '12 de setembro', read: '6 min' },
@@ -157,12 +157,12 @@ export default function Home() {
             { title: 'Raridade, atributos e procedência', date: '15 de setembro', read: '3 min' },
             { title: 'Como proteger sua carteira', date: '15 de setembro', read: '2 min' },
           ].map((a) => (
-            <div key={a.title} className="rounded-xl overflow-hidden border border-zinc-800 bg-zinc-900">
-              <div className="aspect-video bg-zinc-800" />
+            <div key={a.title} className="rounded-xl overflow-hidden border border-[#3A2A1F] bg-[#1E1510]">
+              <div className="aspect-video bg-[#2A1F18]" />
               <div className="p-3">
-                <div className="text-xs text-zinc-500 mb-1">{a.date} | Leitura de {a.read}</div>
+                <div className="text-xs text-[#B8A99A] mb-1">{a.date} | Leitura de {a.read}</div>
                 <div className="font-semibold text-sm">{a.title}</div>
-                <div className="text-xs text-orange-300 mt-2">Ler mais →</div>
+                <div className="text-xs text-[#D28A4C] mt-2">Ler mais →</div>
               </div>
             </div>
           ))}
@@ -170,24 +170,24 @@ export default function Home() {
       </section>
 
       {/* Footer editorial */}
-      <section className="max-w-7xl mx-auto px-4 py-8 grid md:grid-cols-3 gap-6 border-t border-zinc-800">
-        <div className="p-5 rounded-xl bg-zinc-900 border border-zinc-800">
-          <div className="w-8 h-8 rounded-full bg-orange-500/30 flex items-center justify-center mb-3 text-orange-300 font-bold">W</div>
+      <section className="max-w-7xl mx-auto px-4 py-8 grid md:grid-cols-3 gap-6 border-t border-[#3A2A1F]">
+        <div className="p-5 rounded-xl bg-[#1E1510] border border-[#3A2A1F]">
+          <div className="w-8 h-8 rounded-full bg-[#D28A4C]/30 flex items-center justify-center mb-3 text-[#D28A4C] font-bold">W</div>
           <h3 className="font-semibold mb-1">Segurança da carteira</h3>
-          <p className="text-sm text-zinc-400">Proteja sua carteira e colecione arte digital verificada com confiança.</p>
+          <p className="text-sm text-[#B8A99A]">Proteja sua carteira e colecione arte digital verificada com confiança.</p>
         </div>
-        <div className="p-5 rounded-xl bg-zinc-900 border border-zinc-800">
-          <div className="w-8 h-8 rounded-full bg-orange-500/30 flex items-center justify-center mb-3 text-orange-300 font-bold">C</div>
+        <div className="p-5 rounded-xl bg-[#1E1510] border border-[#3A2A1F]">
+          <div className="w-8 h-8 rounded-full bg-[#D28A4C]/30 flex items-center justify-center mb-3 text-[#D28A4C] font-bold">C</div>
           <h3 className="font-semibold mb-1">Criadores em destaque</h3>
-          <p className="text-sm text-zinc-400">Conheça artistas, estúdios e comunidades que moldam a cultura digital na rede.</p>
+          <p className="text-sm text-[#B8A99A]">Conheça artistas, estúdios e comunidades que moldam a cultura digital na rede.</p>
         </div>
-        <div className="p-5 rounded-xl bg-zinc-900 border border-zinc-800">
-          <div className="w-8 h-8 rounded-full bg-orange-500/30 flex items-center justify-center mb-3 text-orange-300 font-bold">D</div>
+        <div className="p-5 rounded-xl bg-[#1E1510] border border-[#3A2A1F]">
+          <div className="w-8 h-8 rounded-full bg-[#D28A4C]/30 flex items-center justify-center mb-3 text-[#D28A4C] font-bold">D</div>
           <h3 className="font-semibold mb-1">Alertas de lançamentos</h3>
-          <p className="text-sm text-zinc-400 mb-3">Receba calendários de cunhagem, novidades de listas de acesso e análises do mercado.</p>
+          <p className="text-sm text-[#B8A99A] mb-3">Receba calendários de cunhagem, novidades de listas de acesso e análises do mercado.</p>
           <div className="flex gap-2">
             <input placeholder="digite seu e-mail..." className="flex-1 text-sm" />
-            <button className="px-3 py-1.5 bg-orange-500 rounded-lg text-sm hover:bg-orange-400">Enviar</button>
+            <button className="px-3 py-1.5 bg-[#D28A4C] rounded-lg text-sm hover:bg-[#E0A060]">Enviar</button>
           </div>
         </div>
       </section>

@@ -11,29 +11,29 @@ export default function Confirmation() {
   }, []);
 
   if (!order) {
-    return <div className="max-w-7xl mx-auto px-4 py-16 text-center"><h2 className="text-2xl">Nenhum pedido confirmado.</h2><button onClick={() => navigate('/')} className="mt-4 text-orange-300">Voltar</button></div>;
+    return <div className="max-w-7xl mx-auto px-4 py-16 text-center"><h2 className="text-2xl">Nenhum pedido confirmado.</h2><button onClick={() => navigate('/')} className="mt-4 text-[#D28A4C]">Voltar</button></div>;
   }
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-8">
-      <div className="text-sm text-zinc-500 mb-4">Início / Mercado / Pagamento</div>
+      <div className="text-sm text-[#B8A99A] mb-4">Início / Mercado / Pagamento</div>
       <h1 className="text-2xl font-bold mb-2">Confirmação de pedido</h1>
-      <div className="p-4 rounded-xl border border-green-600/40 bg-green-600/10 mb-6">
-        <div className="text-green-400 font-semibold">Transação confirmada na Ethereum.</div>
-        <div className="text-sm text-zinc-300 mt-1">A propriedade foi transferida para sua carteira conectada e registrada na rede.</div>
+      <div className="p-4 rounded-xl border border-[#4ade80]/40 bg-[#4ade80]/10 mb-6">
+        <div className="text-[#4ade80] font-semibold">Transação confirmada na Ethereum.</div>
+        <div className="text-sm text-[#F5EDE4] mt-1">A propriedade foi transferida para sua carteira conectada e registrada na rede.</div>
       </div>
 
       <div className="grid md:grid-cols-2 gap-6">
-        <div className="p-4 rounded-xl border border-zinc-800 bg-zinc-900 space-y-2 text-sm">
-          <div><span className="text-zinc-500">ID da transação:</span> {order.txHash}</div>
-          <div><span className="text-zinc-500">Data:</span> {order.date}</div>
-          <div><span className="text-zinc-500">Total:</span> {order.total} ETH</div>
-          <div><span className="text-zinc-500">Carteira:</span> {order.wallet}</div>
-          <div><span className="text-zinc-500">Rede:</span> {order.network}</div>
-          <button className="mt-3 px-4 py-2 bg-zinc-800 rounded-lg text-sm hover:bg-zinc-700">Ver no Etherscan</button>
+        <div className="p-4 rounded-xl border border-[#3A2A1F] bg-[#1E1510] space-y-2 text-sm">
+          <div><span className="text-[#B8A99A]">ID da transação:</span> {order.txHash}</div>
+          <div><span className="text-[#B8A99A]">Data:</span> {order.date}</div>
+          <div><span className="text-[#B8A99A]">Total:</span> {order.total} ETH</div>
+          <div><span className="text-[#B8A99A]">Carteira:</span> {order.wallet}</div>
+          <div><span className="text-[#B8A99A]">Rede:</span> {order.network}</div>
+          <button className="mt-3 px-4 py-2 bg-[#2A1F18] rounded-lg text-sm hover:bg-[#3A2A1F]">Ver no Etherscan</button>
         </div>
 
-        <div className="p-4 rounded-xl border border-zinc-800 bg-zinc-900 space-y-2">
+        <div className="p-4 rounded-xl border border-[#3A2A1F] bg-[#1E1510] space-y-2">
           <h3 className="font-semibold mb-2">Detalhes da transação</h3>
           {order.items.map((it: any, idx: number) => (
             <div key={idx} className="flex justify-between text-sm">
@@ -41,16 +41,16 @@ export default function Confirmation() {
               <span>{it.price} ETH</span>
             </div>
           ))}
-          <div className="border-t border-zinc-800 pt-2 space-y-1 text-sm">
+          <div className="border-t border-[#3A2A1F] pt-2 space-y-1 text-sm">
             <div className="flex justify-between"><span>Subtotal</span><span>{order.total} ETH</span></div>
             <div className="flex justify-between"><span>Taxa de rede</span><span>0.016 ETH</span></div>
             <div className="flex justify-between font-bold"><span>Total</span><span>{order.total} ETH</span></div>
           </div>
-          <div className="text-xs text-green-400 mt-2">Seus NFTs agora estão na sua carteira.</div>
+          <div className="text-xs text-[#4ade80] mt-2">Seus NFTs agora estão na sua carteira.</div>
         </div>
       </div>
 
-      <button onClick={() => navigate('/')} className="mt-6 px-6 py-2.5 bg-orange-500 rounded-lg hover:bg-orange-400">Continuar explorando</button>
+      <button onClick={() => navigate('/')} className="mt-6 px-6 py-2.5 bg-[#D28A4C] rounded-lg hover:bg-[#E0A060]">Continuar explorando</button>
     </div>
   );
 }

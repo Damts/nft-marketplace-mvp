@@ -1,13 +1,14 @@
 @import "tailwindcss";
 
 :root {
-  --bg: #1a1a1a;
-  --fg: #ffffff;
-  --muted: #b3b3b3;
-  --border: #4d4d4d;
-  --accent: #ff9900;
-  --accent-soft: #ffaa33;
-  --card: #2e2e2e;
+  --bg: #140D0A;
+  --fg: #F5EDE4;
+  --muted: #B8A99A;
+  --border: #3A2A1F;
+  --accent: #D28A4C;
+  --accent-soft: #E0A060;
+  --card: #1E1510;
+  --cta-text: #000000;
 }
 
 html, body, #root {
@@ -27,9 +28,9 @@ button { font-family: inherit; }
 
 input, textarea, select {
   font-family: inherit;
-  background: #2e2e2e;
-  color: #ffffff;
-  border: 1px solid #4d4d4d;
+  background: #1E1510;
+  color: #F5EDE4;
+  border: 1px solid #3A2A1F;
   border-radius: 8px;
   padding: 8px 12px;
 }

@@ -43,7 +43,7 @@ export default function Checkout() {
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-8">
-      <div className="text-sm text-zinc-500 mb-4">Início / Mercado / Pagamento</div>
+      <div className="text-sm text-[#B8A99A] mb-4">Início / Mercado / Pagamento</div>
       <h1 className="text-2xl font-bold mb-6">Pagamento</h1>
 
       <form onSubmit={handleSubmit} className="grid md:grid-cols-2 gap-6">
@@ -69,19 +69,19 @@ export default function Checkout() {
           <input placeholder="E-mail *" type="email" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} />
           <input placeholder="Nome ENS *" value={form.ens} onChange={(e) => setForm({ ...form, ens: e.target.value })} />
           <textarea placeholder="Observação do colecionador (opcional)" value={form.note} onChange={(e) => setForm({ ...form, note: e.target.value })} />
-          {error && <div className="text-red-400 text-sm">{error}</div>}
+          {error && <div className="text-[#ff6b6b] text-sm">{error}</div>}
         </div>
 
         <div className="space-y-4">
           <h3 className="font-semibold">Seus NFTs</h3>
-          <div className="p-3 rounded-xl border border-zinc-800 bg-zinc-900 space-y-2">
+          <div className="p-3 rounded-xl border border-[#3A2A1F] bg-[#1E1510] space-y-2">
             {items.map((i) => (
               <div key={i.nft.id} className="flex justify-between text-sm">
                 <span>{i.nft.name} (x{i.quantity})</span>
                 <span>{(parseFloat(i.nft.price) * i.quantity).toFixed(2)} ETH</span>
               </div>
             ))}
-            <div className="border-t border-zinc-800 pt-2 space-y-1 text-sm">
+            <div className="border-t border-[#3A2A1F] pt-2 space-y-1 text-sm">
               <div className="flex justify-between"><span>Subtotal</span><span>{subtotal.toFixed(3)} ETH</span></div>
               <div className="flex justify-between"><span>Desconto</span><span>(-) {discount.toFixed(2)}</span></div>
               <div className="flex justify-between"><span>Taxa de rede</span><span>{networkFee} ETH</span></div>
@@ -93,12 +93,12 @@ export default function Checkout() {
             <h3 className="font-semibold mb-2">Carteira e rede</h3>
             <div className="space-y-2">
               {['MetaMask', 'WalletConnect', 'Coinbase Wallet'].map((w) => (
-                <button type="button" key={w} onClick={() => setWallet(w)} className={`w-full text-left p-3 rounded-lg border ${wallet === w ? 'border-orange-500 bg-orange-500/20' : 'border-zinc-700'}`}>{w}</button>
+                <button type="button" key={w} onClick={() => setWallet(w)} className={`w-full text-left p-3 rounded-lg border ${wallet === w ? 'border-[#D28A4C] bg-[#D28A4C]/20' : 'border-[#3A2A1F]'}`}>{w}</button>
               ))}
             </div>
           </div>
 
-          <button type="submit" className="w-full py-3 bg-orange-500 rounded-lg hover:bg-orange-400 font-semibold">Confirmar compra</button>
+          <button type="submit" className="w-full py-3 bg-[#D28A4C] rounded-lg hover:bg-[#E0A060] font-semibold">Confirmar compra</button>
         </div>
       </form>
     </div>
